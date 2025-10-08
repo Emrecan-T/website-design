@@ -1,0 +1,349 @@
+@charset "utf-8";
+/* CSS Document */
+/* GENEL AYARLAR */
+body{
+    margin: 0; /* Sayfanın dış boşluklarını sıfırlar */
+    padding: 0;  /* İç boşlukları sıfırlar */
+	background:url("assets/kar-resmi.jpg") no-repeat center center fixed; ;/* Arka plan resmi sabitleniyor ve ortalanıyor */
+	background-size: cover; /* Sabit, ortalanmış arka plan resmi */
+	min-height: 100vh; /* Sayfa yüksekliğini en az ekran boyunda tutar */
+	width: 100%; /* Tam genişlik */
+	position: relative; /* İçindeki öğelere konum verme için zemin hazırlar */
+	overflow-x: hidden; /* Yatay taşmaları engeller */
+
+}
+
+/* NAVIGATION BAR (ÜST MENÜ) */
+nav {
+  top: 0;  /* Üstten hizalanır */
+  width: 100%;   /* Tam genişlik */
+  padding: 15px 0;  /* Dikey iç boşluk */
+  background-color: #000;
+  position: sticky; /* Scroll edilince yukarıda yapışık kalır */
+  border-bottom: 1px solid rgba(166,166,166,.5); /* Alt çizgi */
+  text-align: center; /* Menü öğelerini ortalar */
+  z-index: 1; /* Diğer katmanların üzerinde durur */
+}
+
+nav ul {
+  padding: 0; /* İç boşluk */
+  margin: 0; /* Dış boşluk */
+}
+
+nav ul li {
+  display: inline; /* Menü öğeleri yatayda dizilir */
+  margin: 10px 100px; /* Sağ ve sol aralık */
+}
+
+nav ul li a {
+  color: white; 
+  text-decoration: none; /* Altı çizgili olmaması */
+  font-weight: bold;  /* Kalın yazı */
+  font-size: 1.2em;  /* Kalın yazı */
+  white-space: nowrap; /* Yazının alt satıra geçmesini engeller */
+  transition: all 0.5s ease; /* Hover ve transform geçişleri yumuşak olur */
+  display: inline-block; /* Hem satır içi hem kutusal özellikler kullanılabilir */
+}
+
+/*Anbimasyon kısmı*/
+nav ul li a:hover{
+  transform: scale(1.3); /* Üzerine gelince büyür */
+  color: #ffd700;         
+ 
+}
+
+nav ul li a:active {
+  transform: scale(0.8); /* Tıklanma anında küçülür */
+  transition: transform 0.1s ease; /* Hızlı bir geri bildirim verir */
+  color: #009BD8;
+}
+
+
+
+/* Header merhaba kutusu */
+header {
+    height: 100px; /* Header yüksekliği */
+    position: relative; /* İçeriklerin konumlandırılması için referans */
+    display: flex; /* İçeriği yatay-dikey hizalamak için flex kullanılıyor */
+    align-items: center;  /* Dikeyde ortalama */
+    justify-content: center; /* Yatayda ortalama */
+	background: rgba(45,45,45,.6); /* Saydam koyu arka plan */
+	margin: 20px 25px 20px 20px;  /* Dış boşluklar */
+	border-radius: 25px;  /* Köşeleri yuvarlat */
+}
+/* Header merhaba yazısı ayarlama */
+header h1 {
+	letter-spacing: 0.3em; /* Harfler arası boşluk */
+	font-size: 50px;  /* Başlık yazı boyutu */
+	color: rgba(0, 153, 255,.8); 
+	font-family: tahoma; /* Yazı tipi */
+	font-weight: bold;  /* Kalın yazı */
+	text-shadow: 4px 7px 3px rgba(0, 0, 0, 0.7); /* Gölge efekti */ 
+}
+
+/* MERHABA animasyonu */
+header h1 span {
+  display: inline-block; /* Animasyon uygulanabilir hale getirir */
+  opacity: 0; /* Başlangıçta görünmez */
+  transform: translateY(50px); /* Aşağıdan yukarı çıkar */
+  animation: hganimate 2s ease-in-out forwards;  /* Harf harf animasyonla giriş */
+}
+
+header h1 span:nth-child(1) { animation-delay: 0.1s; }
+header h1 span:nth-child(2) { animation-delay: 0.5s; }
+header h1 span:nth-child(3) { animation-delay: 0.9s; }
+header h1 span:nth-child(4) { animation-delay: 1.3s; }
+header h1 span:nth-child(5) { animation-delay: 1.7s; }
+header h1 span:nth-child(6) { animation-delay: 2.1s; }
+header h1 span:nth-child(7) { animation-delay: 2.5s; }
+header h1 span:nth-child(8) { animation-delay: 2.9s; }
+header h1 span:nth-child(9) { animation-delay: 3.3s; }
+header h1 span:nth-child(10) { animation-delay: 3.7s; }
+
+
+
+@keyframes hganimate {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* h1 içindeki harfleri yukarıdan aşağıya yavaşça gösterir */
+
+
+
+
+
+/*içerik kısmı css*/
+section{
+	height: auto; /* İçeriğe göre yükseklik ayarlama */
+	width: 97%; /* Genişlik sayfanın %97'sini kaplar */
+	background: rgba(55, 60, 65,.5);
+	margin: 20px;  /* Dış boşluk */
+	border-radius: 25px;   /* Köşe yuvarlama */
+	box-sizing: border-box;  /* Padding dahil genişlik hesapla */
+	scroll-margin-top: 60px;  /* Scroll ile gelince başlık altında boşluk bırakır */
+    position: relative; /* İçeriklere konumlandırma referansı sağlar */
+}
+
+/*içerik Başlık kısmı*/
+section h2{
+	padding-top: 20px; /* Üstten boşluk */
+	padding-left: 20px; /* Soldan boşluk */
+	height: auto; /* İçeriğe göre yükseklik ayarlama */
+	width: 95%; /* Genişlik sayfanın %95'ini kaplar */
+	margin: 10px 0 0 0;
+	text-align: center; /* Başlık ortalanır */
+	font-weight: bold; /* Yazı kalınlığı*/
+	font-family: tahoma; /* Yazı tipi*/
+	letter-spacing: .5em; /* Harf arası genişlik */
+	color: rgba(0, 153, 255,.8);
+	text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.7); /* Gölgeli efekt */
+	font-size: 30px; 
+	
+}
+
+/* İçerikteki lorem ipsum yazısı */
+section p{
+	text-align: justify; /* Yazılar iki yana yaslı */
+	color: aliceblue; /* Yazı rengi */
+    text-indent: 25px;  /* İlk satır girintisi */
+	font-family: tahoma;/* Yazı tipi */
+	font-weight: bold; /* Kalın yazı */
+	padding:20px; /* iç boşluk */
+	
+}
+
+
+
+
+/*footer css kısmı*/
+footer{
+	width: 97%;  /* İçeriğe göre yükseklik */
+	height: auto; /* Yükseklik içeriğe göre ayarlanır */
+	background: rgba(55, 60, 65,.5); /* Arkaplan rengi */
+	margin:20px; /* Dış boşluk */
+	border-radius: 25px; /* Köşeleri yuvarlat */
+	position:relative; /* İçeriklere konumlandırma referansı sağlar */
+
+}
+
+/* Footer da başlık kısmı */
+footer h2{
+	padding-top: 20px;  /* Başlığın üst boşluğu */
+	padding-left: 20px; /* Başlığın sol boşluğu */
+	height: auto; /* Yükseklik içeriğe göre ayarlanır */
+	width: 95%; /* Genişlik sayfanın %95'ini kaplar */
+	margin: 10px 0 0 0; /* Yukardan boşluk */
+	text-align: center; /* Metin ortalanır */
+	font-weight: bold; /* Kalın yazı */
+	font-family: tahoma; /* Yazı tipi */
+	letter-spacing: .5em; /* Harfler arasında geniş açıklık */
+	color: rgba(0, 153, 255,.8); /* Saydam mavi tonlu renk */
+	text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.7); /* Gölge efekti */
+	font-size: 30px; /* Yazı büyüklüğü */
+}
+
+/* Footer içerisindeki yazılar */
+footer p{
+	
+	text-align: justify;  /* Metin iki yana yaslanır */
+	color: lightblue; /* Yazı rengi açık mavi */
+    text-indent: 25px; /* Paragraf başında girinti */
+	font-family: tahoma; /* Yazı tipi */
+	font-weight:bold; /* Kalın yazı */
+	padding:20px; /* İç boşluk */
+	
+}
+
+
+
+
+/*Logo ekleme*/
+.whatsapp{
+	width: 50px; /* Genişlik 50 piksel */
+	height: 50px;  /* Yükseklik 50 piksel */
+	float: right;  /* Sağ tarafa hizalanır */
+	padding-right: 30px;  /* Sağdan boşluk bırakır */
+	transition: transform 0.5s ease, filter 0.5s ease; /* Hover efekti yumuşak geçişle olur */
+}
+
+
+
+.twitter{
+	width: 50px; /* Genişlik 50 piksel */
+	height: 50px; /* Yükseklik 50 piksel */
+	float: right;  /* Sağ tarafa hizalanır */
+	padding-right: 30px;   /* Sağdan boşluk bırakır */
+	transition: transform 0.5s ease, filter 0.5s ease; /* Hover efekti yumuşak geçişle olur */
+}
+	
+
+.instagram{
+	width: 50px; /* Genişlik 50 piksel */
+	height: 50px;  /* Yükseklik 50 piksel */
+	float: right;  /* Sağ tarafa hizalanır */
+	padding-right: 30px;   /* Sağdan boşluk bırakır */
+	transition: transform 0.5s ease, filter 0.5s ease; /* Hover efekti yumuşak geçişle olur */
+} 
+
+/* Animasyonu verdiğimiz yer */
+.instagram:hover,
+.twitter:hover,
+.whatsapp:hover {
+  transform: scale(1.3); /* Üzerine gelince %130 büyür */
+  filter: drop-shadow(0 0 5px #ffd700); /* Altın sarısı dış parıltı efekti */
+  cursor: pointer; /* Fare üzerine geldiğinde el simgesi olur */
+}
+
+
+
+
+/*kar animasyon */
+.snow1{
+    background: url("assets/snow1.png");  /* Kar tanesi görseli */
+    background-repeat: repeat; /* Döngüsel tekrar eder */
+    width: 100%; /* Genişlik olarak tamamını  kaplar */
+    height: 100vh; /* Yükseklik tam ekran kaplar */
+    position: fixed; /* Sayfanın scroll’undan etkilenmez, ekrana sabitlenir */
+    top: 0; /* Üstten 0 boşluk*/
+    left: 0; /* Soldan 0 boşluk */
+    animation: kar1 20s linear infinite; /* 20 saniyelik sürekli animasyon */
+	z-index: 0;  /* En arkada kalır */
+}
+.snow2{
+    background: url("assets/snow1.png");  /* Kar tanesi görseli */
+    background-repeat: repeat; /* Döngüsel tekrar eder */
+    background-size: 300px; /* Kar taneleri küçültülür */
+    filter: blur(1px);  /* Hafif bulanıklık (derinlik efekti) */
+    width: 100%; /* Genişlik olarak tamamını  kaplar */
+    height: 100vh; /* Yükseklik tam ekran kaplar */
+    position: fixed; /* Sayfanın scroll’undan etkilenmez, ekrana sabitlenir */
+    top: 0; /* Üstten 0 boşluk*/
+    left: 0; /* Soldan 0 boşluk */
+    animation: kar2 20s linear infinite;/* 20 saniyelik sürekli animasyon */
+	z-index: 0;/* En arkada kalır */
+}
+.snow3{
+    background: url("assets/snow1.png"); /* Kar tanesi görseli */
+    background-repeat: repeat; /* Döngüsel tekrar eder */
+    background-size: 800px; /* Daha büyük kar taneleri */
+    filter: blur(2px);  /* Daha fazla bulanıklık */
+    width: 100%; /* Genişlik olarak tamamını  kaplar */
+    height: 100vh; /* Yükseklik tam ekran kaplar */
+    position: fixed; /* Sayfanın scroll’undan etkilenmez, ekrana sabitlenir */
+    top: 0; /* Üstten 0 boşluk*/
+    left: 0; /* Soldan 0 boşluk */
+    animation: kar3 20s linear infinite;/* 20 saniyelik sürekli animasyon */
+	z-index: 0; /* En arkada kalır */
+}
+
+@keyframes kar1 {
+    0% {background-position: 0px 0px;}
+    100% {background-position: 100% 100vh;}   
+}/* Kar taneleri sağ alta çapraz şekilde kayar */
+@keyframes kar2 {
+    0% {background-position: 0px -100px}
+    100% {background-position: 0 100vh}   
+} /* Karlar dikey aşağıya doğru akar */
+@keyframes kar3 {
+	0%{background-position: 0px 100px}
+	100%{background-position: 300px 100px}
+}/* Karlar yatay sağa doğru hareket eder */
+
+
+
+
+
+/*responsive bölümü css*/
+@media screen and (max-width: 768px) {
+  
+	nav ul{
+  display: flex; /* Menü öğeleri esnek kutu olur */
+  flex-wrap: wrap;  /* Ekran daralınca alt satıra iner */
+  justify-content: center; /* Ortalanır */
+}
+nav ul li {
+    display: block;  /* Alt alta dizilir */
+	margin: 8px 20px;  /* Boşluklar ayarlanır */
+  }
+/* Merhaba yazısı */
+  header h1 {
+    font-size: 25px;  /* Başlık yazısı küçültülür */
+  }
+/* Kutu küçültme ayarları*/
+  section, footer {
+    width: 95%; /* Genişlik sayfanın %95'ini kaplar */
+    margin: 10px; /* Dış boşluk verme */ 
+    font-size: 15px; /* İçerik yazı boyutu küçültülür */
+  }
+
+	/* içerik  Başlık kısmı ayarkarı */
+  section h2,
+  footer h2 {
+    font-size: 20px; /* Başlık boyutu küçültülür */
+    letter-spacing: 0.2em; /* Kelimeler arası boşluk */
+  }
+	
+	/* İçerikteki yazılar */
+	section p,
+	footer p {
+    font-size: 13px; /* Yazı boyutu küçülür */
+    padding: 10px; /* İç boşluk azaltılır */
+  }
+	/* Logo ayatları */
+ .whatsapp, .twitter, .instagram {
+    height: 20px;  /* İkonların yüksekliği küçülür */
+	width: 20px; /* İkonların genişliği küçülür */
+    float: none; /* Öğeyi herhangi bir yana yaslamaz, normal akışta tutar */
+    display: inline-block; /* Hem satır içi gibi dizilir hem de genişlik/yükseklik alabilir */
+    margin: 10px 5px; /* Dış boşluk */
+	padding:0 0 0 30px;  /* Soldan iç boşluk */
+  }
+}
+
+
